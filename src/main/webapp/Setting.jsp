@@ -40,8 +40,7 @@
 											class="uploader-list">
 											<div class="file-item thumbnail" id="thelist">
 												<%String touxiang="'"+user.getTouxiang()+"'"; %>
-												<img alt='..' src=<%out.print(touxiang); %>
-													style="height: 100%; weight: 100%;">
+												<img alt=".." src=<%out.print(touxiang); %> style="width:100%;height:100%;" >
 												<div class="info">当前头像</div>
 											</div>
 										</div>

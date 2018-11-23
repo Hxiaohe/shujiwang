@@ -66,7 +66,7 @@ public class BookDAO implements IBookDAO {
 		ResultSet rs = null;
 		Book book =new Book();
 		try {
-			String sql = "select * from book where id="+id+"";
+			String sql = "select * from book where id='"+id+"'";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next()){
@@ -100,7 +100,7 @@ public class BookDAO implements IBookDAO {
 		Book book =new Book();
 		List<Book> list = new ArrayList<Book>();
 		try {
-			String sql = "select * from book where bookname="+bookName+"";
+			String sql = "select * from book where bookname='"+bookName+"'";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next()){

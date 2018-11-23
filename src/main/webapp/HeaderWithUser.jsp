@@ -35,7 +35,7 @@
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
-				<li><a href="#">书籍评论</a></li>
+				<li><a href="allpinlun.jsp">书籍评论</a></li>
 				<li><a href="shuku.jsp">书库</a></li>
 			</ul>
 		</div>
@@ -43,24 +43,9 @@
 		<form id="globalsearchform" role="search" onsubmit=""
 			class="navbar-form navbar-left">
 			<div style="" class="input-group">
-				<div class="input-group-btn">
-					<button type="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false" class="btn btn-default dropdown-toggle">
-						<span id="globalsearchform_typetext">综合</span>&nbsp; <span
-							class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li><a href="#" data-type="book" onclick="">书名搜索</a></li>
-						<li><a href="javascript:;" data-type="author" onclick="">作者搜索</a></li>
-						<li><a href="javascript:;" data-type="booklist" onclick="">书单搜索</a></li>
-						<li><a href="javascript:;" data-type="user" onclick="">用户搜索</a></li>
-						<li class="divider"></li>
-						<li><a href="javascript:;" data-type="all" onclick="">综合搜索</a></li>
-					</ul>
-				</div>
 				<input id="globalsearchtype" type="hidden" name="searchType"
 					value="all"> <input id="globalsearchtxt" type="text"
-					name="searchTextInput" placeholder="输入书名/作者名/用户/书单"
+					name="searchTextInput" placeholder="输入书名/作者名"
 					class="form-control"> <span class="input-group-btn">
 					<button type="button" onclick="" class="btn btn-default">搜索</button>
 				</span>
@@ -69,14 +54,14 @@
 		<div>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
-					data-toggle="dropdown"> <%String touxiang="'"+((User)session.getAttribute("user")).getTouxiang()+"'"; %>
-						<img alt='..' src=<%out.print(touxiang); %> width="20" height="20">
+					data-toggle="dropdown">
+						<img alt='..' src=<%out.print(((User)session.getAttribute("user")).getTouxiang()); %> width="20" height="20">
 						<%out.print(((User)session.getAttribute("user")).getUserName()); %>
 						<b class="caret"></b>
 				</a>
 					<ul class="dropdown-menu">
-						<li><a href="#">个人书架</a></li>
-						<li><a href="#">我的书单</a></li>
+						<li><a href="UserBook.jsp">我的书架</a></li>
+						<li><a href="user_pinlun.jsp">我的评论</a></li>
 						<li><a href="Setting.jsp">个人设置</a></li>
 						<li class="divider"></li>
 						<li><a href="process_out.jsp">退出登录</a></li>

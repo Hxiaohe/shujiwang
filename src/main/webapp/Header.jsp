@@ -17,8 +17,8 @@
 <body>
 
 	<!-- 导航栏 -->
-	<header class="navbar navbar-default navbar-fixed-top"> <nav
-		class="navbar navbar-default" role="navigation">
+	<header class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
 			<button data-toggle="collapse" data-target="#header-navbar"
@@ -38,7 +38,7 @@
 
 		<div>
 			<ul class="nav navbar-nav">
-				<li><a href="#">书籍评论</a></li>
+				<li><a href="allpinlun.jsp">书籍评论</a></li>
 				<li><a href="shuku.jsp">书库</a></li>
 			</ul>
 		</div>
@@ -47,24 +47,9 @@
 			onsubmit="ys.common.globalsearch();return false;"
 			class="navbar-form navbar-left">
 			<div style="" class="input-group">
-				<div class="input-group-btn">
-					<button type="button" data-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false" class="btn btn-default dropdown-toggle">
-						<span id="globalsearchform_typetext">综合</span>&nbsp; <span
-							class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<li><a href="#" data-type="book" onclick="">书名搜索</a></li>
-						<li><a href="javascript:;" data-type="author" onclick="">作者搜索</a></li>
-						<li><a href="javascript:;" data-type="booklist" onclick="">书单搜索</a></li>
-						<li><a href="javascript:;" data-type="user" onclick="">用户搜索</a></li>
-						<li class="divider"></li>
-						<li><a href="javascript:;" data-type="all" onclick="">综合搜索</a></li>
-					</ul>
-				</div>
 				<input id="globalsearchtype" type="hidden" name="searchType"
 					value="all"> <input id="globalsearchtxt" type="text"
-					name="searchTextInput" placeholder="输入书名/作者名/用户/书单"
+					name="searchTextInput" placeholder="输入书名/作者名"
 					class="form-control"> <span class="input-group-btn">
 					<button type="button" onclick="" class="btn btn-default">搜索</button>
 				</span>
@@ -80,7 +65,8 @@
 			</ul>
 		</div>
 	</div>
-	</nav> <!-- modal -->
+	</nav>
+		<!-- modal -->
 	<div id="login-modal-sm" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true"
 		data-backdrop="false" class="modal fade">

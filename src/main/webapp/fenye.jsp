@@ -59,6 +59,14 @@ public String[] getAlltxtName(String mulu,int num){
 %>
 <body>
 
+<% User user=(User)session.getAttribute("user");
+	if(user!=null){%>
+<%@ include file="HeaderWithUser.jsp"%>
+<%}else{ %>
+<%@ include file="Header.jsp"%>
+<%} %>
+<div class="container" style="padding-top:90px"><div class="row"><div>
+
 	<%        
    String s=this.getServletContext().getRealPath("/");
    String pages=request.getParameter("page"); 
@@ -165,5 +173,6 @@ else
  }
 setInterval('setCount()',10); 
 </script>
+</div></div></div>
 </body>
 </html>

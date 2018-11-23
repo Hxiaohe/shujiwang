@@ -74,7 +74,7 @@ public void alterUser(User user) {
 		ResultSet rs = null;
 		User us = new User();
 		try {
-			String sql = "select * from user where id="+id+"";
+			String sql = "select * from user where id='"+id+"'";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next()){
@@ -82,7 +82,7 @@ public void alterUser(User user) {
 				us.setId(rs.getString("id"));
 				us.setGender(rs.getString("gender"));
 				us.setPassWord(rs.getString("passWord"));
-				us.setTouxiang(rs.getString("touxaing"));
+				us.setTouxiang(rs.getString("touxiang"));
 				us.setUserName(rs.getString("userName"));
 				us.setQianming(rs.getString("qianming"));
 			}

@@ -1,20 +1,33 @@
 package domain;
 
 public class Command {
-    private User user;
-    private Book book;
+	private String id;
+    private String userId;
+    private String bookId;
     private String content;
-	public User getUser() {
-		return user;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+	public String getUserId() {
+		return userId;
 	}
-	public void setUser(User user) {
-		this.user = user;
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
-	public Book getBook() {
-		return book;
+
+	public String getBookId() {
+		return bookId;
 	}
-	public void setBook(Book book) {
-		this.book = book;
+
+	public void setBookId(String bookId) {
+		this.bookId = bookId;
 	}
 	public String getContent() {
 		return content;

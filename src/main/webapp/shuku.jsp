@@ -119,10 +119,11 @@ public String[] getAlltxtName(String mulu,int num){
 	<%}else{ %>
 	<%@ include file="Header.jsp"%>
 	<%} %>
-
+<div class="container">
+    <div class="row">
 	<%
 String s=this.getServletContext().getRealPath("/");
-String path="books/古代文献藏书13330种/古代文献藏书13330种/古代文献藏书13337种/";
+String path="books/";
  int num=getAlltxt(s+path);
  String[] allname=getAlltxtName(s+path, num);
  String[] de=getAlltxtDe(s+path, num);
@@ -134,7 +135,7 @@ String path="books/古代文献藏书13330种/古代文献藏书13330种/古代�
 		 tempbook.setAuthor(allname[i].split("-")[2]);
 		 tempbook.setChaodai(allname[i].split("-")[1]);
 		 tempbook.setZishu(getWordsNum(de[i]));
-		 tempbook.setLujing(de[i]);
+		 tempbook.setLujing(String.valueOf(i));
 		 try
 			{
 				//调用业务逻辑层的方法完成注册功能，userService与上面的useBean元素中的id属性对应
@@ -160,34 +161,37 @@ String path="books/古代文献藏书13330种/古代文献藏书13330种/古代�
 	   for(int i=0;i<pageFileSize;i++) {
 	   
 	   %>
-	<div class="col-lg-4 col-md-6 col-xs-12">
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<p>
-					<img src='image/timg.jpg'
-						style='max-height: 125px; max-width: 100px;'>
-				</p>
-			</div>
-			<ul class="list-group">
-				<li class="list-group-item">
-					<% out.println("书名:<a href='fenye.jsp?book="+(diPage*pageFileSize+i)+"'>");
-		   out.println(allname[diPage*pageFileSize+i].split("-")[0]+"</a><br>"); %>
-				</li>
-				<li class="list-group-item">
-					<% out.println("朝代:"+allname[diPage*pageFileSize+i].split("-")[1]+"<br>"); %>
-				</li>
-				<li class="list-group-item">
-					<% out.println("作者:"+allname[diPage*pageFileSize+i].split("-")[2]+"<br>"); %>
-				</li>
-				<li class="list-group-item">
-					<% out.println("字数:"+getWordsNum(de[diPage*pageFileSize+i])+"<br>"); %>
-				</li>
-			</ul>
-		</div>
-	</div>
+        <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>
+                        <img src='image/timg.jpg'
+                             style='max-height: 125px; max-width: 100px;'>
+                    </p>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <% out.println("书名:<a href='pinlun_to_book.jsp?book="+(diPage*pageFileSize+i)+"'>");
+                            out.println(allname[diPage*pageFileSize+i].split("-")[0]+"</a><br>"); %>
+                    </li>
+                    <li class="list-group-item">
+                        <% out.println("朝代:"+allname[diPage*pageFileSize+i].split("-")[1]+"<br>"); %>
+                    </li>
+                    <li class="list-group-item">
+                        <% out.println("作者:"+allname[diPage*pageFileSize+i].split("-")[2]+"<br>"); %>
+                    </li>
+                    <li class="list-group-item">
+                        <% out.println("字数:"+getWordsNum(de[diPage*pageFileSize+i])+"<br>"); %>
+                    </li>
+                </ul>
+            </div>
+        </div>
 	<%
-	   }
-   }
+	   }%>
+
+    </div>
+    <div class="row">
+   <%}
    else{
        int p=fileLineCount%pageFileSize;
        int psize=pageFileSize;
@@ -195,36 +199,36 @@ String path="books/古代文献藏书13330种/古代文献藏书13330种/古代�
            psize=fileLineCount%pageFileSize;
 
 	   for(int i=0;i<psize;i++) {%>
-
-	<div class="col-lg-4 col-md-6 col-xs-12">
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<p>
-					<img src='image/timg.jpg'
-						style='max-height: 125px; max-width: 100px;'>
-				</p>
-			</div>
-			<ul class="list-group">
-				<li class="list-group-item">
-					<% out.println("书名:<a href='fenye.jsp?book="+(diPage*pageFileSize+i)+"'>");
-		   out.println(allname[diPage*pageFileSize+i].split("-")[0]+"</a><br>"); %>
-				</li>
-				<li class="list-group-item">
-					<% out.println("朝代:"+allname[diPage*pageFileSize+i].split("-")[1]+"<br>"); %>
-				</li>
-				<li class="list-group-item">
-					<% out.println("作者:"+allname[diPage*pageFileSize+i].split("-")[2]+"<br>"); %>
-				</li>
-				<li class="list-group-item">
-					<% out.println("字数:"+"<br>"); %>
-				</li>
-			</ul>
-		</div>
-	</div>
+        <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p>
+                        <img src='image/timg.jpg'
+                             style='max-height: 125px; max-width: 100px;'>
+                    </p>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <% out.println("书名:<a href='pinlun_to_book.jsp?book="+(diPage*pageFileSize+i)+"'>");
+                            out.println(allname[diPage*pageFileSize+i].split("-")[0]+"</a><br>"); %>
+                    </li>
+                    <li class="list-group-item">
+                        <% out.println("朝代:"+allname[diPage*pageFileSize+i].split("-")[1]+"<br>"); %>
+                    </li>
+                    <li class="list-group-item">
+                        <% out.println("作者:"+allname[diPage*pageFileSize+i].split("-")[2]+"<br>"); %>
+                    </li>
+                    <li class="list-group-item">
+                        <% out.println("字数:"+"<br>"); %>
+                    </li>
+                </ul>
+            </div>
+        </div>
 	<%
 	   }
    }
 %>
+    </div>
 	<div align="center">
 		<ul class="pagination">
 			<li><a href="shuku.jsp?page=<%=(diPage-1)>0?diPage-1:0%>">&laquo;</a></li>
@@ -246,6 +250,7 @@ String path="books/古代文献藏书13330种/古代文献藏书13330种/古代�
 				href="shuku.jsp?page=<%=(diPage+1)<fileCountPage-1?diPage+1:fileCountPage-1 %>">&raquo;</a></li>
 		</ul>
 	</div>
+</div>
 	<%@ include file="Footer.jsp"%>
 </body>
 </html>

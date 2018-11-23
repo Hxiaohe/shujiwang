@@ -5,17 +5,27 @@ import domain.Command;
 import java.util.List;
 
 public interface ICommandDAO {
-	//添加一个用户到数据库中
-		public void addCommand(Command command);
-		//修改用户
-		public void alterCommand(Command command);
+	//添加一个命令到数据库中
+		 void addCommand(Command command);
+		//修改命令
+		 void alterCommand(Command command);
 		
-		//根据用户编号获取用户信息，以User对象的形式返回
-		public Command getCommandById(String id);
+		//根据命令编号获取命令信息，以Command对象的形式返回
+		 Command getCommandById(String id);
 		
-		//根据用户名获取用户信息，以User对象返回
-		public List<Command> getUserByUserName(String userName);
+		//根据用户名获取评论信息，以Command对象返回
+		 List<Command> getCommandsByUserId(String userId);
+
+
+	//根据用户名获取评论信息，以Command对象返回
+	 List<Command> getCommandsByBookId(String bookId);
 		
 		//获得所有评论
-		public List<Command> getAllCommands();
+		 List<Command> getAllCommands();
+
+		 //某用户是否评论某书
+		 boolean isBybookIdAndUserId(String bookId,String userId);
+
+    //根据用户名和书籍名获得唯一Command
+    Command getCommandBybookIdAndUserId(String bookId,String userId);
 }

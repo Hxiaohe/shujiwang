@@ -65,7 +65,12 @@ public class UserService implements IUserService {
 		return userDAO.getUserById(id);
 	}
 
-    /**
+	@Override
+	public List<User> getUserByName(String name) {
+		return userDAO.getUserByUserName(name);
+	}
+
+	/**
      * 验证用户的合法性
      * 
      * @param ，密码
