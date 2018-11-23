@@ -40,14 +40,14 @@
 			</ul>
 		</div>
 		<!-- 搜书form -->
-		<form id="globalsearchform" role="search" onsubmit=""
+		<form id="globalsearchform" role="search" ACTION="Search_Result.jsp"
 			class="navbar-form navbar-left">
 			<div style="" class="input-group">
 				<input id="globalsearchtype" type="hidden" name="searchType"
 					value="all"> <input id="globalsearchtxt" type="text"
-					name="searchTextInput" placeholder="输入书名/作者名"
+					name="input" placeholder="输入书名/作者名"
 					class="form-control"> <span class="input-group-btn">
-					<button type="button" onclick="" class="btn btn-default">搜索</button>
+					<button type="submit" onclick="" class="btn btn-default">搜索</button>
 				</span>
 			</div>
 		</form>

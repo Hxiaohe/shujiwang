@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>阅读-古籍网</title>
+<link rel="Shortcut Icon" href="image/guji.ico">
 </head>
 <%!
 
@@ -146,7 +147,7 @@ else
 	var num= document.getElementById("whatnum");
 	var n=Number(num.value)-1;
 	if(n<<%=fileCountPage%>)
-    window.location.href="fenye.jsp?book=<%=bookname %>page="+n;
+    window.location.href="fenye.jsp?book=<%=bookname %>&&page="+n;
  }
  function fnGetCpmisWords(str){  
 	    sLen = 0;  

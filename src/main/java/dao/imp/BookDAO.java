@@ -2,6 +2,7 @@ package dao.imp;
 
 import dao.IBookDAO;
 import domain.Book;
+import jdk.nashorn.internal.ir.WhileNode;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -104,7 +105,6 @@ public class BookDAO implements IBookDAO {
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next()){
-				
 				book.setId(rs.getString("id"));
 				book.setBookname(rs.getString("bookname"));
 				book.setAuthor(rs.getString("author"));
@@ -161,14 +161,13 @@ public class BookDAO implements IBookDAO {
 		Connection conn = new dao.imp.DatabaseDAO().getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		Book book =new Book();
 		List<Book> list = new ArrayList<Book>();
 		try {
 			String sql = "select * from book ";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			if(rs.next()){
-				
+			while (rs.next()){
+				Book book =new Book();
 				book.setId(rs.getString("id"));
 				book.setBookname(rs.getString("bookname"));
 				book.setAuthor(rs.getString("author"));
@@ -189,6 +188,41 @@ public class BookDAO implements IBookDAO {
 			}
 		}
 		return list;
+	}
+
+	@Override
+	public List<Book> searchBooks(String input) {
+
+        Connection conn = new dao.imp.DatabaseDAO().getConnection();
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        List<Book> list = new ArrayList<Book>();
+        try {
+            String sql = "select * from book where bookname like '%"+input+"%' or  author like '%"+input+"%'";
+            pstmt = conn.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+            while (rs.next()){
+                Book book =new Book();
+                book.setId(rs.getString("id"));
+                book.setBookname(rs.getString("bookname"));
+                book.setAuthor(rs.getString("author"));
+                book.setChaodai(rs.getString("chaodai"));
+                book.setZishu(Integer.parseInt(rs.getString("zishu")));
+                book.setLujing(rs.getString("lujing"));
+                list.add(book);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            try {
+                conn.close();
+                pstmt.close();
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return list;
 	}
 
 }

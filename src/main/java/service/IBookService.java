@@ -5,17 +5,21 @@ import domain.Book;
 import java.util.List;
 
 public interface IBookService {
-	public void alterBook(Book book);
-	//���ע���û���Ϣ�����ݿ�
-	public void addBook(Book book);
+	 void alterBook(Book book);
 
-	//�����û���Ż�ȡ�û���Ϣ
-	public Book getBookByID(String id);
+	 void addBook(Book book);
+
+	 Book getBookByID(String id);
 	
 	
-	public List<Book> getBookBybookName(String bookName);
+	 List<Book> getBookBybookName(String bookName);
 	
-	public List<Book> getAllBooks();
-	public boolean isUpAllBooks();
+	 List<Book> getAllBooks();
+
+	 boolean isUpAllBooks();
+
+    List<Book> searchBooks(String input);
+
+
 }
 

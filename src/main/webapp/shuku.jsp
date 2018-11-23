@@ -132,7 +132,7 @@ String path="books/";
 	 for(int i=0;i<allname.length;i++){
 		 Book tempbook=new Book();
 		 tempbook.setBookname(allname[i]);
-		 tempbook.setAuthor(allname[i].split("-")[2]);
+		 tempbook.setAuthor(allname[i].split("-")[2].split("\\.")[0]);
 		 tempbook.setChaodai(allname[i].split("-")[1]);
 		 tempbook.setZishu(getWordsNum(de[i]));
 		 tempbook.setLujing(String.valueOf(i));
@@ -219,7 +219,7 @@ String path="books/";
                         <% out.println("作者:"+allname[diPage*pageFileSize+i].split("-")[2]+"<br>"); %>
                     </li>
                     <li class="list-group-item">
-                        <% out.println("字数:"+"<br>"); %>
+                        <% out.println("字数:"+getWordsNum(de[diPage*pageFileSize+i])+"<br>"); %>
                     </li>
                 </ul>
             </div>

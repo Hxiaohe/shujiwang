@@ -48,4 +48,9 @@ public class BookService implements IBookService {
 		return bookDAO.isUpAllBooks();
 	}
 
+	@Override
+	public List<Book> searchBooks(String input) {
+		return bookDAO.searchBooks(input);
+	}
+
 }
